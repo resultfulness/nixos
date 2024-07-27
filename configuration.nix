@@ -71,6 +71,7 @@
     gcc
     git
     neovim
+    p7zip
     pass
     picom
     playerctl
