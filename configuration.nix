@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -51,20 +50,6 @@
   users.users.alice = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      stow
-      feh
-      firefox
-      sxhkd
-      pass
-    ];
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      alice = import ./home.nix;
-    };
   };
 
   fonts.packages = with pkgs; [
@@ -74,25 +59,27 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
     alacritty
-    ripgrep
-    fzf
     cargo
-    rustc
+    firefox
+    fzf
     gcc
+    git
+    neovim
+    pass
+    ripgrep
+    rustc
+    stow
+    wget
   ];
 
   programs = {
-    tmux.enable = true;
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
     };
+    tmux.enable = true;
   };
 
   # List services that you want to enable:
