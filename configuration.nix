@@ -60,6 +60,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    brightnessctl
     cargo
     dmenu
     j4-dmenu-desktop
@@ -72,12 +73,14 @@
     neovim
     pass
     picom
+    playerctl
     polybar
     ripgrep
     rustc
     stow
     sxhkd
     wget
+    xorg.xsetroot
   ];
 
   programs = {
