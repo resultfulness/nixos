@@ -61,6 +61,8 @@
   environment.systemPackages = with pkgs; [
     alacritty
     cargo
+    dmenu
+    j4-dmenu-desktop
     dunst
     feh
     firefox
