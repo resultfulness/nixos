@@ -61,15 +61,20 @@
   environment.systemPackages = with pkgs; [
     alacritty
     cargo
+    dunst
+    feh
     firefox
     fzf
     gcc
     git
     neovim
     pass
+    picom
+    polybar
     ripgrep
     rustc
     stow
+    sxhkd
     wget
   ];
 
@@ -80,13 +85,23 @@
       enableSSHSupport = true;
     };
     tmux.enable = true;
+    xfconf.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+      ];
+    };
   };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.blueman.enable = true;
+  services = {
+    blueman.enable = true;
+    openssh.enable = true;
+    gvfs.enable = true;
+    tumbler.enable = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
