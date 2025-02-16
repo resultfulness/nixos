@@ -25,7 +25,11 @@
     nixosConfigurations = {
       orka = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit pkgs; };
-        modules = [ ./configuration.nix ];
+        modules = [ ./orka/configuration.nix ];
+      };
+      haai = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pkgs; };
+	modules = [ ./haai/configuration.nix ];
       };
     };
   };
